@@ -27,7 +27,7 @@ class Shops(models.Model):
     opening_time = models.TimeField('Время открытия', default=datetime.now())
     closing_time = models.TimeField('Время закрытия', default=datetime.now())
 
-    # open_or_closed = models.BooleanField(default=True)
+    #open_or_closed = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

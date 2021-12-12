@@ -22,6 +22,6 @@ from shops import api
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('city/', views.CityViewSet.as_view({'get': 'list'})),
-    path('city/<int:city_id>/', views.CityViewSet.as_view({'get': 'retrieve'})),
     path('city/<int:city_id>/street/', views.StreetViewSet.as_view({'get': 'list'})),
+    path('shop/', views.ShopCreateViewSet.as_view({'post': 'create'})),
 ]

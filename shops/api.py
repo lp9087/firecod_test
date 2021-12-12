@@ -5,9 +5,9 @@ from rest_framework.response import Response
 from .models import *
 from .serializers import *
 
-#class cityViewSet(viewsets.ViewSet):
-#    def list(self, request):
-#        queryset = city.objects.all()
-#        serializer = cityListSerializer(queryset, many= True)
-#        return Response(serializer.data)
-#
+
+class cityViewSet(viewsets.ViewSet):
+    def list(self, request):
+        queryset = City.objects.all()
+        serializer = CityListSerializer(queryset, many=True)
+        return Response(serializer.data)

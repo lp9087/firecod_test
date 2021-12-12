@@ -17,3 +17,10 @@ class StreetListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Street
         fields = ("name",)
+
+class ShopCreateSerializer(serializers.ModelSerializer):
+    """Создание магазина"""
+
+    class Meta:
+        model = Shops
+        fields = "__all__"

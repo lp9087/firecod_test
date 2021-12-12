@@ -12,8 +12,8 @@ class CityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = City.objects.all()
     serializer_class = CityListSerializer
 
-    def get_queryset(self):
-        street = Street.objects.all()
+    # def get_queryset(self):
+    #   street = Street.objects.all()
 
 
 class StreetViewSet(viewsets.ReadOnlyModelViewSet, ):
@@ -25,3 +25,8 @@ class StreetViewSet(viewsets.ReadOnlyModelViewSet, ):
     def get_queryset(self):
         queryset = Street.objects.filter(city_id=self.kwargs.get('city_id'))
         return queryset
+
+
+class ShopCreateViewSet(viewsets.ModelViewSet):
+    """Создание магазина"""
+    serializer_class = ShopCreateSerializer

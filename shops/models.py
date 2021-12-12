@@ -22,6 +22,7 @@ class Street(models.Model):
 class Shops(models.Model):
     """Магазины"""
     name = models.CharField('Магазин', max_length=150, default='null')
+    city = models.ForeignKey(City, on_delete=models.PROTECT, )
     street = models.ForeignKey(Street, on_delete=models.PROTECT)
     building = models.TextField('Дом')
     opening_time = models.TimeField('Время открытия', default=datetime.now())

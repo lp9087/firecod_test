@@ -18,8 +18,20 @@ class StreetListSerializer(serializers.ModelSerializer):
         model = Street
         fields = ("name",)
 
+
 class ShopCreateSerializer(serializers.ModelSerializer):
     """Создание магазина"""
+
+    class Meta:
+        model = Shops
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        return {'id': instance.id, 'status': instance.is_open}
+
+
+class ShoplistSerializer(serializers.ModelSerializer):
+    """Список магазинов"""
 
     class Meta:
         model = Shops

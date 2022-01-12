@@ -35,7 +35,7 @@ class ShoplistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shops
-        fields = ("name", "city", "street", "building", "opening_time", "closing_time", "is_open")
+        fields = ("name", "city", "street", "building", "opening_time", "closing_time",)
 
 
 

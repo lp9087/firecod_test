@@ -5,6 +5,7 @@ from django_property_filter import PropertyFilterSet, PropertyNumberFilter
 from rest_framework import generics, viewsets
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet, DateTimeFilter
 
+import shops.filters
 from .models import City, Street, Shops
 from .serializers import CityListSerializer, StreetListSerializer, ShopCreateSerializer, ShoplistSerializer
 
@@ -19,7 +20,6 @@ class StreetViewSet(generics.ListAPIView):
     """Вывод списка улиц"""
 
     serializer_class = StreetListSerializer
-    filter_backends = (DjangoFilterBackend,)
 
     def get_queryset(self):
         queryset = Street.objects.filter(city_id=self.kwargs.get('city_id'))
@@ -30,7 +30,7 @@ class ShopViewSet(viewsets.ModelViewSet):
     """Для магазинов"""
     queryset = Shops.objects.all()
     filter_backends = [DjangoFilterBackend]
-    filter_fields = ['city', 'street',]
+    filter_class = shops.filters.ShopPropertyFilter
 
     def get_serializer_class(self):
         if self.action == 'create':

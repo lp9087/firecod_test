@@ -1,8 +1,7 @@
 from django.db import models
-from datetime import datetime
 
 from django.utils import timezone
-from django.utils.timezone import localtime
+from django.utils.timezone import localtime, datetime
 
 
 class City(models.Model):
@@ -38,13 +37,6 @@ class Shops(models.Model):
     building = models.TextField('Дом')
     opening_time = models.TimeField('Время открытия', default=datetime.now(), blank=True, null=True)
     closing_time = models.TimeField('Время закрытия', default=datetime.now(), blank=True, null=True)
-
-    @property
-    def is_open(self):
-        if self.opening_time < localtime().time() < self.closing_time:
-            return 1
-        else:
-            return 0
 
     def __str__(self):
         return self.name

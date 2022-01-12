@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shops',
     'rest_framework',
-    'django_filters'
+    'django_filters',
+    'django_property_filter',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +80,9 @@ WSGI_APPLICATION = 'firecod_test.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'firecode',
+        'NAME': 'test',
         'USER': 'postgres',
-        'PASSWORD': '45Hlknlp9087',
+        'PASSWORD': 'qwerty12+',
         'HOST': 'localhost',
         'PORT': '5432'
     }

@@ -1,6 +1,9 @@
 from django.db import models
 from datetime import datetime
 
+from django.utils import timezone
+from django.utils.timezone import localtime
+
 
 class City(models.Model):
     """Города"""
@@ -8,6 +11,10 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Город'
+        verbose_name_plural = 'Города'
 
 
 class Street(models.Model):
@@ -17,6 +24,10 @@ class Street(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Улица'
+        verbose_name_plural = 'Улицы'
 
 
 class Shops(models.Model):
@@ -30,10 +41,14 @@ class Shops(models.Model):
 
     @property
     def is_open(self):
-        if self.opening_time < datetime.now().time() < self.closing_time:
-            return True
+        if self.opening_time < localtime().time() < self.closing_time:
+            return 1
         else:
-            return False
+            return 0
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Магазин'
+        verbose_name_plural = 'Магазины'

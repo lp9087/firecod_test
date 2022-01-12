@@ -27,7 +27,7 @@ class ShopCreateSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def to_representation(self, instance):
-        return {'id': instance.id, 'status': instance.is_open}
+        return {'id': instance.id}
 
 
 class ShoplistSerializer(serializers.ModelSerializer):
@@ -35,4 +35,7 @@ class ShoplistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shops
-        fields = "__all__"
+        fields = ("name", "city", "street", "building", "opening_time", "closing_time", "is_open")
+
+
+

@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from shops import views
 from shops import api
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('city/', views.CityViewSet.as_view({'get': 'list'})),
-    path('city/<int:city_id>/street/', views.StreetViewSet.as_view({'get': 'list'})),
+    path('city/', views.CityViewSet.as_view()),
+    path('city/<int:city_id>/street/', views.StreetViewSet.as_view()),
     path('shop/', views.ShopViewSet.as_view({'post': 'create', 'get': 'list'})),
 ]
+admin.site.index_title = "Test1"
+admin.site.site_header = "Test2"
+admin.site.site_title = "Test3"

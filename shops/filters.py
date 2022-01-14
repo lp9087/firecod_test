@@ -6,11 +6,11 @@ from shops.models import Shops
 
 
 class ShopPropertyFilter(FilterSet):
-    is_open = filters.BooleanFilter(method='filter_open')
+    open = filters.BooleanFilter(method='filter_open')
 
     class Meta:
         model = Shops
-        fields = ['city', 'is_open']
+        fields = ['city', 'street', 'open']
 
     def filter_open(self, queryset, name, value):
         qs = queryset.annotate(

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [ "$DATABASE" = "postgres" ]
 then
     echo "Waiting for postgres..."
@@ -12,6 +12,6 @@ fi
 
 python manage.py flush --no-input
 python manage.py migrate
-python manage.py loaddata dev.json
+#python manage.py loaddata dev.json
 
 exec "$@"
